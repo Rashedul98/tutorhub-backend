@@ -79,7 +79,7 @@ exports.StudentJWT = async (request, response) => {
 };
 
 exports.getTeacherBySubject = async (request, response) => {
-  subject = request.body.subject;
+  subjects = request.body.subject;
   scope = request.body.scope;
   const studentCoords = {
     latitude: request.body.latitude,
@@ -95,7 +95,7 @@ exports.getTeacherBySubject = async (request, response) => {
     const teachers = await Teacher.find({
       Expertise: {
         $elemMatch: {
-          subject: { $in: subject },
+          subject: { $in: subjects.map(subject => new RegExp(`^${subject}$`, 'i'))   },
           scope: scope,
         },
       },

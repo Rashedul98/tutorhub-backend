@@ -43,7 +43,7 @@ mongoose
     console.log("Database connected");
   })
   .then((result) => {
-    app.listen(3000, '192.168.68.125');
+    app.listen(3000);
     console.log("Server Running");
   })
   .catch((err) => console.log(err));
