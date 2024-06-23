@@ -21,24 +21,30 @@ exports.userStudent = async (request, response) => {
   try {
     const savedUser = await user.save();
     console.log("Saving Student Data");
-    response.send(savedUser);
+    response.json({
+      success: true,
+      
+/**
+ *       first_name: savedUser.FirstName ?? null,
+      last_name: savedUser.LastName ?? null,
+      contact_info: savedUser.ContactInfo ?? null,
+      email: savedUser.email ?? null,
+      school: savedUser.Institutation.school ?? null,
+      college: savedUser.Institutation.college ?? null,
+      address: savedUser.Address ?? null,
+    
+ */
+      error: null,
+    });
     console.log(savedUser);
   } catch (err) {
     response.send(err);
   }
 };
 
-exports.getUserStudent = async (request, response) => {
-  try {
-    const getstdInfo = await User.find();
-    console.log("getting students info");
-    response.send(getstdInfo);
-  } catch (err) {
-    console.log(err);
-  }
-};
 
-exports.StudentJWT = async (request, response) => {
+
+exports.getStudent = async (request, response) => {
   const authenticateStudent = async (email, password, userModel) => {
     const user = await userModel.findOne({ email });
     if (!user) {
@@ -108,11 +114,9 @@ exports.getTeacherBySubject = async (request, response) => {
       };
 
       const distance = calculateDistance(studentCoords, teacherCoords);
-      console.log(distance);
       return distance <= 5000; // in meters
     });
 
-    console.log(teachersWithinDistance);
     response.json({
       teachers: teachersWithinDistance,
       error: null,

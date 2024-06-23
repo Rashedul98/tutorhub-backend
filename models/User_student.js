@@ -24,11 +24,11 @@ const studentSchema = new Schema({
     Institutation:{
         school:{
             type: String,
-            required: true,
+            
         },
         college:{
             type: String,
-            required: true,
+          
         }
     },
 
