@@ -17,7 +17,7 @@ exports.userTeacher = async (request, response) => {
     Availability: request.body.Availability,
   });
 
-  await user.save();
+  const savedUser = await user.save();
   try {
     console.log("\n saving teachers data \n");
     return response.json({success: true, error: null})
