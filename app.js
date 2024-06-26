@@ -8,8 +8,6 @@ const mongoose = require("mongoose");
 app.use(bodyParser.json());
 dotenv.config();
 
-//mongoose
-//const mongoConnect = require('./util/database')
 
 //sign-up routes for both students and teachers`
 const SignUp = require("./routes/signup");
@@ -25,14 +23,7 @@ const getTutions = require('./routes/GetTutions');
 app.use(getTutions);
 
 
-/**
- * 
-mongoConnect(() => {
-  app.listen(3000)
-console.log("Server Running");
-})
 
- */
 
 mongoose
   .connect(
@@ -48,4 +39,4 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-//module.exports = mongoConnect;
+

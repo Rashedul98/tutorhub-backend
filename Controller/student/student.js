@@ -23,17 +23,6 @@ exports.userStudent = async (request, response) => {
     console.log("Saving Student Data");
     response.json({
       success: true,
-      
-/**
- *       first_name: savedUser.FirstName ?? null,
-      last_name: savedUser.LastName ?? null,
-      contact_info: savedUser.ContactInfo ?? null,
-      email: savedUser.email ?? null,
-      school: savedUser.Institutation.school ?? null,
-      college: savedUser.Institutation.college ?? null,
-      address: savedUser.Address ?? null,
-    
- */
       error: null,
     });
     console.log(savedUser);
