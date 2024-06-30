@@ -23,20 +23,18 @@ const getTutions = require('./routes/GetTutions');
 app.use(getTutions);
 
 
-
-
-mongoose
-  .connect(
-    "mongodb+srv://thisisrashedul:omeGanuke@mycluster.pjk8vd9.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then((result) => {
-    // console.log(result);
-    console.log("Database connected");
-  })
-  .then((result) => {
-    app.listen(3000);
-    console.log("Server Running");
-  })
-  .catch((err) => console.log(err));
-
-
+async function startServer() {
+  try{
+    const connectionString = await 
+    mongoose
+      .connect(
+        "mongodb+srv://thisisrashedul:omeGanuke@mycluster.pjk8vd9.mongodb.net/?retryWrites=true&w=majority"
+      )
+      console.log("Database connected");
+      app.listen(3000);
+      console.log("server running");
+  }catch(err){
+    console.log(err);
+  }
+}
+startServer();

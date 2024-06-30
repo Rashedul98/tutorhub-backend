@@ -29,7 +29,7 @@ exports.teacherSignin = async (request, response) => {
         token: token,
         first_name: teacher.FirstName ?? null,
         last_name: teacher.LastName ?? null,
-        contact_info: teacher.ContactInfo ?? null,
+        phone: teacher.Phone ?? null,
         email: teacher.email ?? null,
         address: teacher.Address ?? null,
         error: null,
