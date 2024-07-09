@@ -6,12 +6,14 @@ const tutions = new Schema({
     teacher_email: String,
     student_name: String,
     student_email: String,
-    subjects:{
-        type: Array,
-        required: true
-    },
-    fee:{
-        type:Number,
+    subjects: [
+        {
+            subject: String,
+            scope: String,
+        }
+    ],
+    fee: {
+        type: Number,
         default: 0
     },
     status: String
