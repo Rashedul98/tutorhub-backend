@@ -17,14 +17,15 @@ exports.userTeacher = async (request, response) => {
     Availability: request.body.Availability,
   });
 
-   user.save();
+  user.save();
   try {
     console.log("\n saving teachers data \n");
-    return response.json({success: true, error: null})
+    return response.json({ success: true, error: null })
   } catch (err) {
     console.log(err);
   }
 };
+
 
 exports.getTeachers = async (request, response) => {
   try {

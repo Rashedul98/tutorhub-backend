@@ -65,7 +65,7 @@ exports.getStudent = async (request, response) => {
       school: student.Institutation.school ?? null,
       college: student.Institutation.college ?? null,
       address: student.Address ?? null,
-    
+
       error: null,
     });
   } catch (error) {
@@ -90,7 +90,7 @@ exports.getTeacherBySubject = async (request, response) => {
     const teachers = await Teacher.find({
       Expertise: {
         $elemMatch: {
-          subject: { $in: subjects.map(subject => new RegExp(`^${subject}$`, 'i'))   },
+          subject: { $in: subjects.map(subject => new RegExp(`^${subject}$`, 'i')) },
           scope: scope,
         },
       },
@@ -103,7 +103,7 @@ exports.getTeacherBySubject = async (request, response) => {
       };
 
       const distance = calculateDistance(studentCoords, teacherCoords);
-      return distance <= 5000; // in meters
+      return distance <= 2000; // in meters
     });
 
     response.json({

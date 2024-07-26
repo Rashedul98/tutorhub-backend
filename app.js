@@ -24,17 +24,19 @@ app.use(getTutions);
 
 
 async function startServer() {
-  try{
-    const connectionString = await 
-    mongoose
-      .connect(
-        "mongodb+srv://thisisrashedul:omeGanuke@mycluster.pjk8vd9.mongodb.net/?retryWrites=true&w=majority"
-      )
-      console.log("Database connected");
-      app.listen(3000);
-      console.log("server running");
-  }catch(err){
+  try {
+    const connectionString = await
+      mongoose
+        .connect(
+          "mongodb+srv://thisisrashedul:omeGanuke@mycluster.pjk8vd9.mongodb.net/?retryWrites=true&w=majority"
+        )
+    console.log("Database connected");
+    app.listen(3000);
+    console.log("server running");
+  } catch (err) {
     console.log(err);
   }
 }
 startServer();
+
+
