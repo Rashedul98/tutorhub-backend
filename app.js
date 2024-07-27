@@ -22,6 +22,9 @@ app.use(CreateTution);
 const getTutions = require('./routes/GetTutions');
 app.use(getTutions);
 
+const locations = require('./routes/update_location');
+app.use(locations);
+
 
 async function startServer() {
   try {
