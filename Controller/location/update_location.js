@@ -4,7 +4,7 @@ exports.getUpdateLocations = async (request, response) => {
     try {
         console.log(request.body);
 
-        resp = await userModel.updateOne({ email: request.body.email }, { $set: { Location: request.body.Location }, });
+        resp = await userModel.updateOne({ email: request.body.email }, { $set: { Location: request.body.location }, });
         console.log(resp);
         response.status(200).send({
             success: true,
